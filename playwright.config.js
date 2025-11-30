@@ -1,5 +1,6 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test'
+import process from 'node:process'
 
 /**
  * Read environment variables from file.
@@ -77,5 +78,4 @@ export default defineConfig({
   //   url: 'http://localhost:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-});
-
+})
