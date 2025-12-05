@@ -30,11 +30,11 @@ test.describe('Создание и удаление пользователей',
 
   test.describe('Редактирование лэйбла', () => {
     test('Данные изменяются корректно', async () => {
-        await labelPage.gotoLabelList()
-        await labelPage.createLabel(testLabelData.name)
-        await labelPage.gotoLabelList()
-        await labelPage.editLabel(testLabelData.updatedName)
-        await expect(labelPage.page.getByText(testLabelData.updatedName)).toBeVisible()
+      await labelPage.gotoLabelList()
+      await labelPage.createLabel(testLabelData.name)
+      await labelPage.gotoLabelList()
+      await labelPage.editLabel(testLabelData.updatedName)
+      await expect(labelPage.page.getByText(testLabelData.updatedName)).toBeVisible()
     })
   })
 

@@ -31,8 +31,8 @@ test.describe('Создание и удаление пользователей',
   test.describe('Редактирование статуса', () => {
     test('Данные изменяются корректно', async () => {
       await statusesPage.gotoStatusesList()
-        await statusesPage.createStatus(testStatusData.name, testStatusData.slug)
-           await statusesPage.gotoStatusesList()
+      await statusesPage.createStatus(testStatusData.name, testStatusData.slug)
+      await statusesPage.gotoStatusesList()
       await statusesPage.editStatus(testStatusData.updatedName)
       await expect(statusesPage.page.getByText(testStatusData.updatedName)).toBeVisible()
     })
