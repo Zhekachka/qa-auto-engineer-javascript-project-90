@@ -19,6 +19,9 @@ test.describe('Создание и удаление пользователей',
       await userPage.gotoUsersList()
 
       await userPage.page.getByRole('link', { name: 'Create' }).click()
+      await expect(userPage.page.getByLabel('Email')).toBeVisible()
+      await expect(userPage.page.getByLabel('First name')).toBeVisible()
+      await expect(userPage.page.getByLabel('Last name')).toBeVisible()
       await expect(userPage.page.getByRole('button', { name: 'Save' })).toBeVisible()
     })
 

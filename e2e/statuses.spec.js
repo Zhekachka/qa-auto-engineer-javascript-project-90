@@ -18,6 +18,8 @@ test.describe('Создание и удаление пользователей',
     test('Форма создания отображается корректно и статус создается', async () => {
       await statusesPage.gotoStatusesList()
       await statusesPage.page.getByRole('link', { name: 'Create' }).click()
+      await expect(statusesPage.page.getByLabel('Name')).toBeVisible()
+      await expect(statusesPage.page.getByLabel('Slug')).toBeVisible()
       await expect(statusesPage.page.getByRole('button', { name: 'Save' })).toBeVisible()
     })
 
