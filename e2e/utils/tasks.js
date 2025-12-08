@@ -45,13 +45,18 @@ export class TaskPage {
     await this.page.getByRole('button', { name: 'Save' }).click()
   }
 
-  async moveTask(taskTitle, targetStatus) {
-    const taskCard = this.page.locator('.MuiCard-root', { hasText: taskTitle }).first()
-    const targetColumn = this.page.locator('.css-1xphtog', {
-      has: this.page.getByRole('heading', { name: targetStatus }),
-    })
+  async moveTask() {
+    const taskCard = this.page.locator('div[role="button"]', { hasText: testTaskData.title })
+    const targetColumn = this.page.getByRole('.css-1xphtog', { hasText: 'Published' })
 
-    await taskCard.dragTo(targetColumn)
+    await taskCard.hover()
+    await taskCard.dragTo(targetColumn, {targetPosition: { x: 10, y: 20 }})
+
+    // await taskCard.hover();
+    // await this.page.mouse.down();
+    
+    // await targetColumn.hover();
+    // await this.page.mouse.up();
   }
 
   async filterByStatus(status) {

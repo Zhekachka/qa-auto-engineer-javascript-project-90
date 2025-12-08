@@ -51,9 +51,8 @@ test.describe('Управление задачами', () => {
       await taskPage.gotoTaskList()
       await taskPage.moveTask(testTaskData.title, 'Published')
 
-      const publishedColumn = taskPage.page.locator('.css-1xphtog', {
-        has: taskPage.page.getByRole('heading', { name: 'Published' }),
-      })
+      const publishedColumn = taskPage.page.locator('.css-1xphtog',
+        { hasText: 'Published' })
       await expect(publishedColumn.getByText(testTaskData.title)).toBeVisible()
     })
   })
