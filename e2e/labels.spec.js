@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
-import { userData, AuthPage } from './utils/auth.js'
-import { testLabelData, LabelPage } from './utils/labels.js'
+import { userData, AuthPage } from './pages/auth.js'
+import { testLabelData, LabelPage } from './pages/labels.js'
 
 test.describe('Создание и удаление пользователей', () => {
   let authPage
