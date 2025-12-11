@@ -49,7 +49,8 @@ test.describe('Управление задачами', () => {
       await taskPage.gotoTaskList()
       await taskPage.createTask()
       await taskPage.gotoTaskList()
-      await taskPage.moveTask(testTaskData.title, 'Published')
+      await taskPage.moveTask()
+      await taskPage.gotoTaskList()
 
       const publishedColumn = taskPage.page.locator('.css-1xphtog',
         { hasText: 'Published' })

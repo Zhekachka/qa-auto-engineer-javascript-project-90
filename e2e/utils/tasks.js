@@ -46,11 +46,13 @@ export class TaskPage {
   }
 
   async moveTask() {
-    const taskCard = this.page.locator('div[role="button"]', { hasText: testTaskData.title })
-    const targetColumn = this.page.getByRole('.css-1xphtog', { hasText: 'Published' })
-
-    await taskCard.hover()
-    await taskCard.dragTo(targetColumn, {targetPosition: { x: 10, y: 20 }})
+    await this.page.getByRole('button', { name: testTaskData.title }).getByLabel('Edit').click()
+    await this.page.getByRole('combobox', { name: 'Status' }).click()
+    await this.page.getByRole('option', { name: testTaskData.status.published }).click()
+    await this.page.getByRole('button', { name: 'Save' }).click()
+    // попытка перемещения через dragAndDrop
+    // await taskCard.hover()
+    // await taskCard.dragTo(targetColumn, {targetPosition: { x: 10, y: 20 }})
 
     // await taskCard.hover();
     // await this.page.mouse.down();
